@@ -30,4 +30,14 @@ class Settings
    {
        return '/' . $this->path['views'] ?? '';
    }
+
+   public function getStylePath(): string
+   {
+        return '/' . $this->path['static'] ?? '';
+   }
+
+   public function getDbSetting(): array
+    {
+        return $this->db ?? [];
+    }
 }

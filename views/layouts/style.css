@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+*{
+    font-family: Roboto Slab;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --black: #000;
+    --white: #fff;
+    --light-blue: #8D99AE;
+    --dark-blue: #2B2D42;
+    --main-text: 24px;
+    --tiny-text: 15px;
+    --big-text: 30px;
+}
+h1, h2, h3, h4, h5, h6{
+    font-size: var(--main-text);
+}
+
+
+/* HEADER */
+header{
+    position: sticky;
+    z-index: 9999;
+    top: 0;
+}
+header, footer{
+    max-width: 960px;
+    width: 90%;
+    height: 50px;
+    align-items: center;
+    margin: 0 auto;
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-items: start;
+    flex-direction: row;
+    padding: 0 20px;
+}
+header > a{
+    margin-left: 20px;
+    justify-self: end;
+}
+header > a > h1, 
+header > a,
+footer > p{
+    font-size: var(--tiny-text);
+    color: var(--white);
+}
+
+/* HEADING */
+header + h2{
+    font-size: var(--big-text);
+    margin: 45px 0;
+    text-align: center;
+}
+
+/* MAIN COMTAINER  */
+.container{
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 960px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.container > div > h3{
+    font-size: var(--big-text);
+    display: inline-block;
+    margin-bottom: 22px;
+}
+.query-result{
+    max-width: 580px;
+    width: 100%;
+}
+.query-result > h5{
+    margin-top: 30px;
+    margin-left: 45px;
+    font-size: var(--big-text);
+}
+/* ROOM */
+.room{
+    padding: 22px 26px;
+    background-color: var(--dark-blue);
+    max-width: 528px;
+    min-width: 528px;
+    margin-bottom: 35px;
+}
+.room > h4, 
+.room > h5{
+    color: var(--white);
+}
+
+/* STATIC MENU */
+.static-links{
+    width: 320px;
+}
+.static-links > a{
+    color: var(--dark-blue);
+    display: inline-block;
+    width: 320px;
+    margin-bottom: 35px;
+}
+
+/* FOOTER */
+footer{
+    max-width: 908px;
+    padding: 0 46px;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0px -7px 73px rgba(0, 0, 0, 0.12);
+}
+footer > p{
+    color: var(--black);
+}
+.form{
+    width: 70%;
+    margin: 0 auto;
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form > input, 
+.form > select{
+    font-size: var(--tiny-text);
+    background-color: var(--white);
+    border: none;
+    outline: none;
+    box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.12);
+    color: var(--light-blue);
+    padding: 0 20px;
+    width: 100%;
+    max-width: 540px;
+    height: 76px;
+    margin-top: 20px;
+}
+.form > input:first-child{
+    margin-top: 0;
+}
+.form > select{
+    max-width: 580px;
+}
+.form > input::placeholder{
+    color: var(--light-blue);
+}
+.form > input:focus-visible,
+.form > select:focus-visible{
+    /* outline: none; */
+    outline: 1px solid var(--light-blue);
+}
+.form > button{
+    cursor: pointer;
+    border: none;
+    margin: 45px 0;
+    font-size: var(--main-text);
+    max-width: 450px;
+    width: 100%;
+    height: 76px;
+    background-color: var(--dark-blue);
+    color: var(--white);
+
+}
+
+/* FILTER */
+.filter{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 25px;
+}
+.filter > button,
+.filter > select{
+    padding: 0 20px;
+    font-size: var(--main-text);
+    border: none;
+}
+.filter > select{
+    /* appearance: none; */
+    width: 100%;
+    max-width: 377px;
+    background-color: var(--light-blue);
+    color: var(--white);
+    /* background: url('img/Rectangle.png') no-repeat right; */
+}
+.filter > button{
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+option{
+    text-transform: capitalize;
+}

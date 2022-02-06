@@ -10,6 +10,7 @@ class View
    private array $data = [];
    private string $root = '';
    private string $layout = '/layouts/main.php';
+   private string $style_url = '../static/css/style.css';
 
    public function __construct(string $view = '', array $data = [])
    {
@@ -43,6 +44,7 @@ class View
 
    public function render(string $view = '', array $data = []): string
    {
+       global $app;
        $path = $this->getPathToView($view);
 
        if (file_exists($this->getPathToMain()) && file_exists($path)) {
@@ -55,6 +57,7 @@ class View
            require $path;
            //Помещаем буфер в переменную и очищаем его
            $content = ob_get_clean();
+           $root = $this->root;
 
            //Возвращаем собранную страницу
            return require($this->getPathToMain());
