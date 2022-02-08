@@ -16,6 +16,10 @@
         "illuminate/events": "10.x-dev",
         "nikic/fast-route": "2.0.x-dev"
     },
+
+    "config": {
+        "platform-check": false
+    },
     
     "autoload": {
         "psr-4": {

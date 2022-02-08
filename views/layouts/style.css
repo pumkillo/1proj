@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400&display=swap');
 *{
     font-family: Roboto Slab;
     font-weight: 400;
@@ -10,14 +10,22 @@
     --white: #fff;
     --light-blue: #8D99AE;
     --dark-blue: #2B2D42;
+    --big-text: 30px;
     --main-text: 24px;
     --tiny-text: 15px;
-    --big-text: 30px;
+    --error-text: 13px;
 }
 h1, h2, h3, h4, h5, h6{
     font-size: var(--main-text);
 }
 
+.errors{
+    font-weight: 300;
+    color: red;
+    font-size: var(--error-text);
+    text-align: center;
+    margin: 10px auto;
+}
 
 /* HEADER */
 header{
