@@ -45,11 +45,15 @@ class Auth
    //Проверка является ли текущий пользователь аутентифицированным
    public static function check(): bool
    {
-       if (self::user()) {
-           return true;
-       }
-       return false;
+       return self::user() ? true : false;
    }
+
+    // Проверка является ли пользователь админом
+    // Айдишник номер 1 закреплен за админом
+    public static function isAdmin(): bool 
+    {
+        return (self::check() && self::user()->role_id === 1) ? true : false;
+    }
 
    //Выход текущего пользователя
    public static function logout(): bool

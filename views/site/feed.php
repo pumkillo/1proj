@@ -16,8 +16,8 @@
         foreach($rooms as $room) :?>
             <div class="room">
             <h4><?=$room->name?></h4>
-            <h5>Вид помещения: <?php echo getName($room_type, $room->id_type_of_room) ?></h5>
-            <h5>Подразделение: <?php echo getName($divisions, $room->id_division) ?></h5>
+            <h5>Вид помещения: <?php echo getName($room_type, $room->type_of_room_id) ?></h5>
+            <h5>Подразделение: <?php echo getName($divisions, $room->division_id) ?></h5>
             </div>
         <?php endforeach; ?>
     </div>

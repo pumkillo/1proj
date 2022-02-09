@@ -42,7 +42,7 @@ header{
     z-index: 9999;
     top: 0;
 }
-header, footer{
+header, footer, .admin-panel{
     max-width: 960px;
     width: 90%;
     height: 50px;
@@ -53,6 +53,19 @@ header, footer{
     justify-items: start;
     flex-direction: row;
     padding: 0 20px;
+}
+.admin-panel{
+    position: sticky;
+    top: 50px;
+    background-color: var(--light-blue);
+    justify-content: space-between;
+}
+.admin-panel > a{
+    background-color: var(--dark-blue);
+    padding: 5px 8px    ;
+    text-decoration: none;
+    color: var(--white);
+    font-size: var(--error-text);
 }
 header > a{
     margin-left: 20px;
@@ -66,7 +79,8 @@ footer > p{
 }
 
 /* HEADING */
-header + h2{
+header + h2, 
+.admin-panel + h2{
     font-size: var(--big-text);
     margin: 45px 0;
     text-align: center;
