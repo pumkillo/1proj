@@ -4,7 +4,7 @@
    <?php 
    if (isset($message['login'])){
       foreach ($message['login'] as $key => $val){
-         echo '<p class="validation error">'.$val.'</p>';
+         echo '<p class="errors">'.$val.'</p>';
       }
    }
    ?>
@@ -12,7 +12,7 @@
    <?php 
    if (isset($message['password'])){
       foreach ($message['password'] as $key => $val){
-         echo '<p class="validation error">'.$val.'</p>';
+         echo '<p class="errors">'.$val.'</p>';
       }
    }
    ?>
@@ -20,7 +20,7 @@
    <?php 
    if (isset($message['name'])){
       foreach ($message['name'] as $key => $val){
-         echo '<p class="validation error">'.$val.'</p>';
+         echo '<p class="errors">'.$val.'</p>';
       }
    }
    ?>
@@ -28,7 +28,7 @@
    <?php 
    if (isset($message['surname'])){
       foreach ($message['surname'] as $key => $val){
-         echo '<p class="validation error">'.$val.'</p>';
+         echo '<p class="errors">'.$val.'</p>';
       }
    }
    ?>
@@ -36,7 +36,7 @@
    <?php 
    if (isset($message['patronymic'])){
       foreach ($message['patronymic'] as $key => $val){
-         echo '<p class="validation error">'.$val.'</p>';
+         echo '<p class="errors">'.$val.'</p>';
       }
    }
    ?>
@@ -44,16 +44,14 @@
    <?php 
    if (isset($message['birthdate'])){
       foreach ($message['birthdate'] as $key => $val){
-         echo '<p class="validation error">'.$val.'</p>';
+         echo '<p class="errors">'.$val.'</p>';
       }
    }
    ?>
    <select name="role_id">
-   <option value="1">администратор</option>
-   <option value="2">сотрудник</option>
-      <?php
-      
-      ?>
+      <?php foreach($roles as $role): ?>
+         <option value="<?= $role->id ?>"><?= $role->name ?></option>
+      <?php endforeach; ?>
    </select> 
    <button>Зарегистрироваться</button>
 </form>

@@ -8,18 +8,6 @@ use Src\Auth\IdentityInterface;
 
 class BaseModel extends Model implements IdentityInterface
 {
-
-   public $timestamps = false;
-   protected $fillable = [];
-
-   protected static function booted()
-   {
-       static::created(function ($user) {
-           $user->password = md5($user->password);
-           $user->save();
-       });
-   }
-
    //Выборка пользователя по первичному ключу
    public function findIdentity(int $id)
    {
@@ -32,7 +20,7 @@ class BaseModel extends Model implements IdentityInterface
        return $this->id;
    }
 
-   //Возврат аутентифицированного пользователя
+//    Возврат аутентифицированного пользователя
    public function attemptIdentity(array $credentials)
    {
 

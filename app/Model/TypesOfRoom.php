@@ -4,7 +4,7 @@ namespace Model;
 
 use Model\BaseModel;
 
-class TypesOfDivision extends BaseModel
+class TypesOfRoom extends BaseModel
 {
 
    public $timestamps = false;
@@ -14,8 +14,8 @@ class TypesOfDivision extends BaseModel
 
    protected static function booted()
    {
-       static::created(function ($type_of_division) {
-           $type_of_division->save();
+       static::created(function ($role) {
+           $role->save();
        });
    }
 

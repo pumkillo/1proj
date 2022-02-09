@@ -3,6 +3,9 @@
 namespace Controller;
 
 use Illuminate\Database\Capsule\Manager as DB;
+use Model\TypesOfRoom;
+use Model\Division;
+use Model\Room;
 use Src\View;
 use Src\Request;
 use Src\Validator\Validator;
@@ -17,9 +20,9 @@ class RoomsController
 
    public function feed() :string
    {
-       $rooms = DB::table('rooms')->get();
-       $room_type = DB::table('types of rooms')->get();
-       $divisions = DB::table('divisions')->get();
+       $rooms = Room::get();
+       $room_type = TypesOfRoom::get();
+       $divisions = Division::get();
        return new View('site.feed', [
            'title' => 'Главная', 
            'rooms' => $rooms, 
@@ -30,17 +33,36 @@ class RoomsController
 
    public function seats_filter(Request $request) :string
    {
-       return new View('site.seats', ['title' => 'Количество посадочных мест']);
+       $divisions = Division::get();
+       $rooms = Room::get();
+       return new View('site.seats', [
+           'title' => 'Количество посадочных мест',
+           'rooms' => $rooms,
+           'divisions' => $divisions,
+        ]);
    }
 
    public function square_filter(Request $request) :string
    {
-       return new View('site.sqaure', ['title' => 'Площадь помещений']);
+       $rooms = Room::get();
+       $types_of_rooms = TypesOfRoom::get();
+    //    $types_of_rooms = TypesOfRoom::where('id', $request.GET['type_of_room']);
+       return new View('site.sqaure', [
+           'rooms' => $rooms,
+           'title' => 'Площадь помещений',
+           'types_of_rooms' => $types_of_rooms,
+        ]);
    }
 
    public function rooms_filter(Request $request) :string
    {
-       return new View('site.rooms', ['title' => 'Помещения']);
+       $rooms = Room::get();
+       $divisions = Division::get();
+       return new View('site.rooms', [
+           'title' => 'Помещения',
+           'rooms' => $rooms,
+           'divisions' => $divisions,
+        ]);
    }
 
    public function add_room(Request $request) :string

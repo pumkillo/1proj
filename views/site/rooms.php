@@ -4,16 +4,18 @@
         <h3>Фильтр</h3>
         <form method='get' class='filter'>
             <select name='type_of_room'>
-                <option value="1">Кабинет</option>
-                <option value="2">Подсобка</option>
-                <option value="3">Туалет</option>
+            <?php foreach($divisions as $division): ?>
+                <option value="<?= $division->id ?>"><?= $division->name ?></option>
+            <?php endforeach; ?>
             </select>
             <button type='submit'>Применить</button>
         </form>
         <h3>Результат запроса</h3>
-        <div class="room">
-            <h4>Кабинет №22</h4>
-        </div>
+        <?php foreach($rooms as $room): ?>
+            <div class="room">
+                <h4><?= $room->name ?></h4>
+            </div>
+        <?php endforeach; ?>
     </div>
     <div class="static-links">
         <h3>Показать:</h3>

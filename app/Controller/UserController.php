@@ -6,6 +6,7 @@ namespace Controller;
 use Src\View;
 use Src\Request;
 use Model\User;
+use Model\Role;
 use Src\Validator\Validator;
 use Src\Auth\Auth;
 
@@ -13,6 +14,7 @@ class UserController
 {
    public function signup(Request $request): string
    {
+       $roles = Role::get();
        if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
                 'login' => ['required', 'unique:users,login'],
@@ -28,15 +30,20 @@ class UserController
             ]);
     
             if($validator->fails()){
-                return new View('site.signup',
-                    ['message' => $validator->errors()]);
+                return new View('site.signup',[
+                        'message' => $validator->errors(),
+                        'roles' => $roles,
+                ]);
             }
     
             if (User::create($request->all())) {
                 app()->route->redirect('/login');
             }
         }
-        return new View('site.signup', ['title' => 'Регистрация']);
+        return new View('site.signup', [
+            'title' => 'Регистрация',
+            'roles' => $roles,
+        ]);
    }
 
    public function login(Request $request): string

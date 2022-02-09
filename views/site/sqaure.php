@@ -1,3 +1,12 @@
+<?php
+    function sumSquare($rooms) {
+        $sum = 0;
+        foreach($rooms as $room) {
+            $sum += $room->square;
+        }
+        return $sum;
+    }
+?>
 <h2>Общую площадь помещений по видам помещений</h2>
 <div class="container">
     <div class="query-result">
@@ -5,15 +14,15 @@
         <form method='get' class='filter'>
             <select name='type_of_room'>
                 <option value="0">Все</option>
-                <option value="1">Кабинет</option>
-                <option value="2">Подсобка</option>
-                <option value="3">Туалет</option>
+                <?php foreach($types_of_rooms as $type_of_rooms): ?>
+                    <option value="<?= $type_of_rooms->id ?>"><?= $type_of_rooms->name ?></option>
+                <?php endforeach; ?>
             </select>
             <button type='submit'>Применить</button>
         </form>
         <h3>Результат запроса</h3>
         <h4>Общая площадь:</h4>
-        <h5>152 кв. м</h5>
+        <h5><?php echo sumSquare($rooms); ?>кв. м</h5>
     </div>
     <div class="static-links">
         <h3>Показать:</h3>

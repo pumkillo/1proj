@@ -18,13 +18,22 @@
 h1, h2, h3, h4, h5, h6{
     font-size: var(--main-text);
 }
-
+.form > .errors{
+    align-self: flex-start;
+}
 .errors{
     font-weight: 300;
     color: red;
     font-size: var(--error-text);
-    text-align: center;
-    margin: 10px auto;
+    /* text-align: center; */
+    margin-top: 10px;
+    margin-left: 10px;
+}
+select{
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
 }
 
 /* HEADER */
@@ -193,9 +202,15 @@ footer > p{
     color: var(--white);
     /* background: url('img/Rectangle.png') no-repeat right; */
 }
+.filter > select:focus-visible{
+    outline: none;
+}
 .filter > button{
     background-color: var(--dark-blue);
     color: var(--white);
+}
+select{
+    text-transform: capitalize;
 }
 option{
     text-transform: capitalize;
