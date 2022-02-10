@@ -1,12 +1,3 @@
-<?php
-    function sumSquare($rooms) {
-        $sum = 0;
-        foreach($rooms as $room) {
-            $sum += $room->square;
-        }
-        return $sum;
-    }
-?>
 <h2>Общую площадь помещений по видам помещений</h2>
 <div class="container">
     <div class="query-result">
@@ -22,7 +13,7 @@
         </form>
         <h3>Результат запроса</h3>
         <h4>Общая площадь:</h4>
-        <h5><?php echo sumSquare($rooms); ?>кв. м</h5>
+        <h5><?php echo $rooms_square; ?>кв. м</h5>
     </div>
     <div class="static-links">
         <h3>Показать:</h3>
@@ -31,3 +22,15 @@
         <a href="seats-filter"><h4>Общее количество посадочных мест по подразделениям</h4></a>
     </div>
 </div>
+<?php 
+    $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    // echo $url;
+
+    // echo get_headers($url);
+?>
+<script defer>
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    let paramValue = url.searchParams.get('type_of_room');
+   document.querySelector(`option[value="${paramValue}"]`).selected = true;
+</script>

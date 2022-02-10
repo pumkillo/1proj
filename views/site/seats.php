@@ -12,7 +12,7 @@
     <div class="query-result">
        <h3>Фильтр</h3>
        <form method='get' class='filter'>
-            <select name='type_of_room'>
+            <select name='division_id'>
                 <?php foreach($divisions as $division): ?>
                     <option value="<?= $division->id ?>"><?= $division->name ?></option>
                 <?php endforeach; ?>
@@ -30,3 +30,9 @@
         <a href="seats-filter"><h4>Общее количество посадочных мест по подразделениям</h4></a>
     </div>
 </div>
+<script defer>
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    let paramValue = url.searchParams.get('division_id');
+   document.querySelector(`option[value="${paramValue}"]`).selected = true;
+</script>

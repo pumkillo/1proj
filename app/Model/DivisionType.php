@@ -4,7 +4,7 @@ namespace Model;
 
 use Model\BaseModel;
 
-class TypesOfDivision extends BaseModel
+class DivisionType extends BaseModel
 {
 
    public $timestamps = false;

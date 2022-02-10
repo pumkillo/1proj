@@ -17,7 +17,7 @@ Route::add('GET', '/square-filter', [Controller\RoomsController::class, 'square_
 Route::add('GET', '/rooms-filter', [Controller\RoomsController::class, 'rooms_filter'])->middleware('auth');
 
 // admin only functions
-Route::add(['GET', 'POST'], '/add-room', [Controller\RoomsController::class, 'add_room'])->middleware('admin');
-Route::add(['GET', 'POST'], '/add-division', [Controller\RoomsController::class, 'add_division'])->middleware('admin');
-Route::add(['GET', 'POST'], '/add-type-of-room', [Controller\RoomsController::class, 'add_type_of_room'])->middleware('admin');
-Route::add(['GET', 'POST'], '/add-type-of-division', [Controller\RoomsController::class, 'add_type_of_division'])->middleware('admin');
+Route::add(['GET', 'POST'], '/add-room', [Controller\AdminFunctionsController::class, 'add_room'])->middleware('admin');
+Route::add(['GET', 'POST'], '/add-division', [Controller\AdminFunctionsController::class, 'add_division'])->middleware('admin');
+Route::add(['GET', 'POST'], '/add-type-of-room', [Controller\AdminFunctionsController::class, 'add_type_of_room'])->middleware('admin');
+Route::add(['GET', 'POST'], '/add-type-of-division', [Controller\AdminFunctionsController::class, 'add_type_of_division'])->middleware('admin');

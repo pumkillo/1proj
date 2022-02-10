@@ -10,9 +10,10 @@ class Room extends BaseModel
    public $timestamps = false;
    protected $fillable = [
        'name',
+       'square',
        'amount_of_seats',
-       'id_type_of_room',
-       'id_division',
+       'type_of_room_id',
+       'division_id',
    ];
 
    protected static function booted()

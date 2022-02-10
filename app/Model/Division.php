@@ -10,7 +10,7 @@ class Division extends BaseModel
    public $timestamps = false;
    protected $fillable = [
        'name',
-       'id_type_of_divisions',
+       'type_of_divisions_id',
    ];
 
    protected static function booted()

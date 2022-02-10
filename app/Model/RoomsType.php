@@ -4,7 +4,7 @@ namespace Model;
 
 use Model\BaseModel;
 
-class TypesOfRoom extends BaseModel
+class RoomsType extends BaseModel
 {
 
    public $timestamps = false;
