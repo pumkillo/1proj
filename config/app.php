@@ -11,5 +11,7 @@ return [
    'validators' => [
       'required' => \Validators\RequireValidator::class,
       'unique' => \Validators\UniqueValidator::class,
+      'max-length' => \Validators\MaxLengthValidator::class,
+      'min-length' => \Validators\MinLengthValidator::class,
    ],
 ];

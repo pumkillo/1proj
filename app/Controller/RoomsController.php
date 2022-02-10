@@ -33,6 +33,10 @@ class RoomsController
 
    public function seats_filter(Request $request) :string
    {
+        $first_id = Division::orderBy('id')->first()->value('id');
+        if(!$request->get('division_id')) {
+            return app()->route->redirect('/seats-filter?division_id='.$first_id);
+        }
        $divisions = Division::get();
        $rooms = Room::where('division_id', '=', $request->get('division_id'))->get();
        return new View('site.seats', [
@@ -44,12 +48,12 @@ class RoomsController
 
    public function square_filter(Request $request) :string
    {
+        if(!$request->get('type_of_room')) {
+            return app()->route->redirect('/square-filter?type_of_room=0');
+        }
        $room_square = Room::where('type_of_room_id', '=', $request->get('type_of_room'))->sum('square');
        if($request->get('type_of_room') == 0) {
             $room_square = Room::get()->sum('square');
-       }
-       if($request->get('type_of_room') === null) {
-            app()->route->redirect('/square-filter?types_of_room=11');
        }
        $types_of_rooms = RoomsType::get();
        return new View('site.sqaure', [
@@ -61,13 +65,17 @@ class RoomsController
 
    public function rooms_filter(Request $request) :string
    {
+        $first_id = Division::orderBy('id')->first()->value('id');
+        if(!$request->get('division_id')) {
+            return app()->route->redirect('/rooms-filter?division_id='.$first_id);
+        }
        $rooms = Room::where('division_id', '=', $request->get('division_id'))->get();
-    //    $rooms = Room::get();
        $divisions = Division::get();
        return new View('site.rooms', [
            'title' => 'Помещения',
            'rooms' => $rooms,
            'divisions' => $divisions,
+           'first_id' => $first_id,
         ]);
    }
 }

@@ -29,7 +29,7 @@ class Request
 
    public function get($field)
    {
-       return $this->body[$field];
+       return $this->body[$field] ?? false;
    }
 
    public function files(): array
