@@ -1,6 +1,6 @@
 <?php
 return [
    'root' => '1proj',
-   'routes' => 'routes',   
+   'routes' => 'routes',
    'views' => 'views',
 ];

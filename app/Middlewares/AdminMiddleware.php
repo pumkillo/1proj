@@ -7,11 +7,11 @@ use Src\Request;
 
 class AdminMiddleware
 {
-   public function handle(Request $request)
-   {
-       //Если пользователь не админ, то генерируется ошибка
-       if (!Auth::isAdmin()) {
-           app()->route->redirect('/login');
-       }
-   }
+    public function handle(Request $request)
+    {
+        //Если пользователь не админ, то генерируется ошибка
+        if (!Auth::isAdmin()) {
+            app()->route->redirect('/login');
+        }
+    }
 }

@@ -4,14 +4,14 @@
         <h3>Фильтр</h3>
         <form method='get' class='filter'>
             <select name='division_id'>
-            <?php foreach($divisions as $division): ?>
-                <option value="<?= $division->id ?>"><?= $division->name ?></option>
-            <?php endforeach; ?>
+                <?php foreach ($divisions as $division) : ?>
+                    <option value="<?= $division->id ?>"><?= $division->name ?></option>
+                <?php endforeach; ?>
             </select>
             <button type='submit'>Применить</button>
         </form>
         <h3>Результат запроса</h3>
-        <?php foreach($rooms as $room): ?>
+        <?php foreach ($rooms as $room) : ?>
             <div class="room">
                 <h4><?= $room->name ?></h4>
             </div>
@@ -19,14 +19,20 @@
     </div>
     <div class="static-links">
         <h3>Показать:</h3>
-        <a href="rooms-filter"><h4>Названия помещений по подразделениям</h4></a>
-        <a href="square-filter"><h4>Общую площадь помещений по видам помещений и в целом по учебному заведению</h4></a>
-        <a href="seats-filter"><h4>Общее количество посадочных мест по подразделениям</h4></a>
+        <a href="rooms-filter">
+            <h4>Названия помещений по подразделениям</h4>
+        </a>
+        <a href="square-filter">
+            <h4>Общую площадь помещений по видам помещений и в целом по учебному заведению</h4>
+        </a>
+        <a href="seats-filter">
+            <h4>Общее количество посадочных мест по подразделениям</h4>
+        </a>
     </div>
 </div>
 <script defer>
     let url_string = window.location.href;
     let url = new URL(url_string);
     let paramValue = url.searchParams.get('division_id');
-   document.querySelector(`option[value="${paramValue}"]`).selected = true;
+    document.querySelector(`option[value="${paramValue}"]`).selected = true;
 </script>

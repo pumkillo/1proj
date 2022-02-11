@@ -4,8 +4,8 @@
         <h3>Фильтр</h3>
         <form method='get' class='filter'>
             <select name='type_of_room'>
-                <option value="0">Все</option>
-                <?php foreach($types_of_rooms as $type_of_rooms): ?>
+                <option value="all">Все</option>
+                <?php foreach ($types_of_rooms as $type_of_rooms) : ?>
                     <option value="<?= $type_of_rooms->id ?>"><?= $type_of_rooms->name ?></option>
                 <?php endforeach; ?>
             </select>
@@ -17,20 +17,20 @@
     </div>
     <div class="static-links">
         <h3>Показать:</h3>
-        <a href="rooms-filter"><h4>Названия помещений по подразделениям</h4></a>
-        <a href="square-filter"><h4>Общую площадь помещений по видам помещений и в целом по учебному заведению</h4></a>
-        <a href="seats-filter"><h4>Общее количество посадочных мест по подразделениям</h4></a>
+        <a href="rooms-filter">
+            <h4>Названия помещений по подразделениям</h4>
+        </a>
+        <a href="square-filter">
+            <h4>Общую площадь помещений по видам помещений и в целом по учебному заведению</h4>
+        </a>
+        <a href="seats-filter">
+            <h4>Общее количество посадочных мест по подразделениям</h4>
+        </a>
     </div>
 </div>
-<?php 
-    $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    // echo $url;
-
-    // echo get_headers($url);
-?>
 <script defer>
     let url_string = window.location.href;
     let url = new URL(url_string);
     let paramValue = url.searchParams.get('type_of_room');
-   document.querySelector(`option[value="${paramValue}"]`).selected = true;
+    document.querySelector(`option[value="${paramValue}"]`).selected = true;
 </script>

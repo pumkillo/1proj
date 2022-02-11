@@ -4,19 +4,18 @@ namespace Model;
 
 use Model\BaseModel;
 
-class Division extends BaseModel
+class DivisionsType extends BaseModel
 {
 
     public $timestamps = false;
     protected $fillable = [
         'name',
-        'type_of_division_id',
     ];
 
     protected static function booted()
     {
-        static::created(function ($division) {
-            $division->save();
+        static::created(function ($type_of_division) {
+            $type_of_division->save();
         });
     }
 
