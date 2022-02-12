@@ -1,5 +1,6 @@
 <h2>Регистрация</h2>
 <form method="post" class="form">
+   <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>" />
    <input type="text" name="login" placeholder="Логин" value="<?= $values['login'] ?? '' ?>">
    <?php
    if (isset($message['login'])) {
@@ -50,7 +51,7 @@
    ?>
    <select name="role_id">
       <?php foreach ($roles as $role) : ?>
-         <option value="<?= $role->id ?>"><?= $role->name ?></option>
+         <option value="<?= $role->id ?>" <?php echo (isset($values) && $values['role_id'] == $role->id) ? 'selected' : ''; ?>><?= $role->name ?></option>
       <?php endforeach; ?>
    </select>
    <button>Зарегистрироваться</button>

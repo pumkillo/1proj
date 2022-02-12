@@ -1,13 +1,17 @@
 <h2>Добавление подразделения</h2>
 <div class="container">
     <form method="post" class="form">
-        <input type="text" name="name" placeholder="Название подразделения">
+        <input type="text" name="name" placeholder="Название подразделения" value="<?= $values['name'] ?? ''?>">
+        <?php if (isset($message['name'])) : ?>
+            <?php foreach ($message['name'] as $key => $val) : ?>
+                <p class="errors"><?= $val ?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
         <select name="type_of_division_id">
             <?php foreach ($division_types as $type) : ?>
-                <option value="<?= $type->id ?>"><?= $type->name ?></option>
+                <option value="<?= $type->id ?>" <?php echo (isset($values) && $values['type_of_division_id'] == $type->id) ? 'selected' : ''; ?>><?= $type->name ?></option>
             <?php endforeach; ?>
         </select>
-        <h3 class="errors"><?= $message ?? ''; ?></h3>
-        <button>Добавить</button>
+        <button type="submit">Добавить</button>
     </form>
 </div>

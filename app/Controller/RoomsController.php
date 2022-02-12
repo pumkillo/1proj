@@ -71,7 +71,7 @@ class RoomsController
         $rooms = Room::where('division_id', '=', $request->get('division_id'))->get();
         $divisions = Division::orderBy('id')->get();
         return new View('site.rooms', [
-            'title' => 'Помещения',
+            'title' => 'Помещения по подразделениям',
             'rooms' => $rooms,
             'divisions' => $divisions,
             'first_id' => $first_id,

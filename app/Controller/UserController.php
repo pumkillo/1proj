@@ -29,6 +29,7 @@ class UserController
                 $values = $request->all();
                 unset($values['password']);
                 return new View('site.signup', [
+                    'title' => 'Регистрация',
                     'message' => $errors,
                     'values' => $values,
                     'roles' => $roles,
