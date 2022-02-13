@@ -16,7 +16,7 @@ class UserController
         $roles = Role::all();
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
-                'login' => ['required', 'unique:users,login', 'min-max-length:,8,20'],
+                'login' => ['required', 'unique:users,login', 'min-max-length:,8,20', 'english-only'],
                 'password' => ['required', 'password'],
                 'name' => ['required', 'min-max-length:,2,30'],
                 'surname' => ['required', 'min-max-length:,5,32'],

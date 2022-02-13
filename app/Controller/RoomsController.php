@@ -7,6 +7,7 @@ use Model\Division;
 use Model\Room;
 use Src\View;
 use Src\Request;
+use function Collect\collection;
 
 class RoomsController
 {

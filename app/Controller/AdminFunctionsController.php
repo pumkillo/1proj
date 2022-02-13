@@ -14,8 +14,8 @@ class AdminFunctionsController
 {
     public function add_room(Request $request): string
     {
-        $type_of_rooms = RoomsType::get();
-        $divisions = Division::get();
+        $type_of_rooms = RoomsType::all();
+        $divisions = Division::all();
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
                 'name' => ['required', 'min-max-length:,5,50'],
@@ -48,7 +48,7 @@ class AdminFunctionsController
 
     public function add_division(Request $request): string
     {
-        $division_types = DivisionsType::get();
+        $division_types = DivisionsType::all();
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
                 'name' => ['required', 'min-max-length:,4,50'],

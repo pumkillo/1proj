@@ -7,7 +7,7 @@ use Src\Validator\AbstractValidator;
 class PasswordValidator extends AbstractValidator
 {
 
-    public string $message = 'Пароль должен содержать как минимум 8 и как максимум 25 символов.<br>Пароль должен содержать заглавные и прописные символы английского алфавита, а также цифры.';
+    public string $message = 'Поле :field должно содержать как минимум 8 и как максимум 25 символов.<br>Пароль должен состоять из заглавных и прописных символов английского алфавита, а также цифр.';
 
     public function rule(): bool
     {

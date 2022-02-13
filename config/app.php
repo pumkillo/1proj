@@ -19,5 +19,6 @@ return [
       'password' => \Validators\PasswordValidator::class,
       'min-max-length' => \Validators\MinMaxLengthValidator::class,
       'date' => \Validators\DateValidator::class,
+      'english-only' => \Validators\EnglishOnlyValidator::class,
    ],
 ];
