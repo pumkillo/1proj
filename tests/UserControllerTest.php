@@ -3,12 +3,12 @@
 use PHPUnit\Framework\TestCase;
 use Model\User;
 
-class SiteTest extends TestCase
+class UserControllerTest extends TestCase
 {
     protected function setUp(): void
     {
         //Установка переменной среды
-        $_SERVER['DOCUMENT_ROOT'] = 'D:/Xampp/xampp/htdocs/1proj';
+        $_SERVER['DOCUMENT_ROOT'] = 'насрать свое #######D:/Xampp/xampp/htdocs/1proj';
 
         //Создаем экземпляр приложения
         $GLOBALS['app'] = new Src\Application(new Src\Settings([

@@ -10,7 +10,6 @@ class View
     private array $data = [];
     private string $root = '';
     private string $layout = '/layouts/main.php';
-    private string $style_url = '../static/css/style.css';
 
     public function __construct(string $view = '', array $data = [])
     {
