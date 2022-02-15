@@ -37,7 +37,7 @@ class UserController
             }
 
             if (User::create($request->all())) {
-                app()->route->redirect('/login/');
+                app()->route->redirect('/login');
                 return false;
             }
         }
@@ -56,6 +56,7 @@ class UserController
         //Если удалось аутентифицировать пользователя, то редирект
         if (Auth::attempt($request->all())) {
             app()->route->redirect('/');
+            return false;
         }
         //Если аутентификация не удалась, то сообщение об ошибке
         return new View('site.login', ['message' => 'Вы ввели неверные данные', 'title' => 'Логин']);

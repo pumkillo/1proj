@@ -10,7 +10,7 @@ use Model\RoomsType;
 use Src\Request;
 use Src\Validator\Validator;
 
-class AdminFunctionsController
+class AdminController
 {
     public function add_room(Request $request): string
     {
@@ -18,7 +18,7 @@ class AdminFunctionsController
         $divisions = Division::all();
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
-                'name' => ['required', 'min-max-length:,5,50'],
+                'name' => ['unique:rooms,name', 'required'],
                 'square' => ['required'],
                 'amount_of_seats' => ['required'],
             ]);
@@ -37,6 +37,7 @@ class AdminFunctionsController
 
             if (Room::create($request->all())) {
                 app()->route->redirect('/add-room');
+                return false;
             }
         }
         return new View('site.add_room', [
@@ -66,6 +67,7 @@ class AdminFunctionsController
             }
             if (Division::create($request->all())) {
                 app()->route->redirect('/add-division');
+                return false;
             }
         }
         return new View('site.add_division', [
@@ -92,6 +94,7 @@ class AdminFunctionsController
             }
             if (RoomsType::create($request->all())) {
                 app()->route->redirect('/add-type-of-room');
+                return false;
             }
         }
         return new View('site.add_type_of_room', ['title' => 'Добавление вида помещения']);
@@ -115,6 +118,7 @@ class AdminFunctionsController
             }
             if (DivisionsType::create($request->all())) {
                 app()->route->redirect('/add-type-of-division');
+                return false;
             }
         }
         return new View('site.add_type_of_division', ['title' => 'Добавление вида подразделения']);
