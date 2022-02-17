@@ -33,7 +33,7 @@ class Api
 
         if (Auth::attempt($_POST)) {
             $token = Auth::generateBearer();
-            (new View())->toJSON(['token' => $token]);
+            (new View())->toJSON(['status_code' => '200', 'data' => ['token' => $token]]);
         }
         (new View())->toJSON(['status_code' => '401', 'data' => ['error' => 'Incorrect data.']]);
     }
