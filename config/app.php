@@ -12,7 +12,8 @@ return [
       'trim' => \Middlewares\TrimMiddleware::class,
       'specialChars' => \Middlewares\SpecialCharsMiddleware::class,
       'csrf' => \Middlewares\CSRFMiddleware::class,
-   ],   
+      'json' => \Middlewares\JSONMiddleware::class,
+   ],
    'validators' => [
       'required' => \Validators\RequireValidator::class,
       'unique' => \Validators\UniqueValidator::class,
@@ -20,5 +21,11 @@ return [
       'min-max-length' => \Validators\MinMaxLengthValidator::class,
       'date' => \Validators\DateValidator::class,
       'english-only' => \Validators\EnglishOnlyValidator::class,
+   ],
+   'providers' => [
+      'kernel' => \Providers\KernelProvider::class,
+      'route' => \Providers\RouteProvider::class,
+      'db' => \Providers\DBProvider::class,
+      'auth' => \Providers\AuthProvider::class,
    ],
 ];

@@ -11,7 +11,7 @@ class MinMaxLengthvalidator extends AbstractValidator
 
     public function rule(): bool
     {
-        $this->message = 'Поле :field должно содержать минимум ' . $this->args[1] . ' и максимум ' . $this->args[2] . ' символов.';
+        $this->message = 'Поле :field должно содержать минимум ' . $this->args[1] . ' и максимум ' . $this->args[2] . ' букв английского алфавита.';
         if (empty($this->value)) {
             return true;
         }

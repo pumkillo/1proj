@@ -7,7 +7,7 @@ use Src\Validator\AbstractValidator;
 class DateValidator extends AbstractValidator
 {
 
-    public string $message = 'Введите верную дату.';
+    public string $message = 'Чтобы продолжить Вам должно быть не менее 18ти лет.';
 
     public function rule(): bool
     {

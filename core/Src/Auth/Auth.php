@@ -18,6 +18,12 @@ class Auth
         }
     }
 
+    public static function generateBearer(): string
+    {
+        $token = md5(time());
+        return $token;
+    }
+
     public static function generateCSRF(): string
     {
         $token = md5(time());

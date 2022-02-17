@@ -62,7 +62,7 @@ class AdminControllerTest extends TestCase
         $request->method = $httpMethod;
 
         //Сохраняем результат работы метода в переменную
-        $result = (new \Controller\AdminFunctionsController())->add_room($request);
+        $result = (new \Controller\AdminController())->add_room($request);
 
         if (!empty($result)) {
             //Проверяем варианты с ошибками валидации
